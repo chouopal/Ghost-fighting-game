@@ -450,3 +450,15 @@
     ghostEl.addEventListener('transitionend', cleanup);
   }
 })();
+(() => {
+  // ✅ 方法2：動態設定 #app 高度避免手機瀏覽器 vh 問題
+  function setAppHeight() {
+    const app = document.getElementById('app');
+    app.style.height = window.innerHeight + 'px';
+  }
+  window.addEventListener('resize', setAppHeight);
+  window.addEventListener('orientationchange', setAppHeight);
+  setAppHeight();
+
+  // ... 其餘程式碼保持不變（前面我們做好的 Combo、粒子特效、遊戲流程）
+})();
