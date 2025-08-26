@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>除妖大作戰</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Start Screen（預設顯示） -->
+    <section id="start-screen" class="screen visible" aria-label="start">
+      <div class="start-wrap">
+        <img id="logo" class="breathing" src="images/Ghostfightinglogo.png" alt="Ghost Fighting Logo" />
+        <p class="tap-hint">點擊任意位置開始</p>
+      </div>
+    </section>
+
+    <!-- Game Screen（預設隱藏，由 .visible 控制顯示） -->
+    <section id="game-screen" class="screen" aria-label="game">
+      <div id="hud">
+        <div class="hud-item">⏱ <span id="time">40.0</span>s</div>
+        <div class="hud-item">👻 <span id="score">0</span></div>
+        <div id="combo" class="hud-combo hidden">COMBO ×<span>1</span></div>
+      </div>
+
+      <div id="playfield" aria-label="playfield"></div>
+
+      <div id="actions">
+        <button id="mode-poop" class="mode-btn active" data-mode="poop">
+          <img src="images/shit.png" alt="shit" />
+          <span>擊退他</span>
+        </button>
+        <button id="mode-talisman" class="mode-btn" data-mode="talisman">
+          <img src="images/talisman.png" alt="talisman" />
+          <span>超渡他</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Result Screen（預設隱藏，由 .visible 控制顯示） -->
+    <section id="result-screen" class="screen" aria-label="result">
+      <div class="result-card">
+        <h2>戰鬥結束</h2>
+        <p>擊中鬼魂：<strong id="final-score">0</strong></p>
+        <p>最高連擊：<strong id="final-max-combo">0</strong></p>
+        <button id="again-btn" class="primary">再玩一次</button>
+      </div>
+    </section>
+
+    <!-- SFX -->
+    <audio id="sfx-throw" src="sounds/throw.mp3" preload="auto"></audio>
+    <audio id="sfx-cry"   src="sounds/cry.mp3"   preload="auto"></audio>
+    <audio id="sfx-happy" src="sounds/happy.mp3" preload="auto"></audio>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
